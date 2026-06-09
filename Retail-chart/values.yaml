@@ -9,7 +9,7 @@ database:
 
 userprofile:
   name: userprofile-deployment
-  image: jeevanc31/aws-retail-app:v1.4.0
+  image: bhuvana20/aws-retail-app:v1.4.0
   port: 3130
   mongodbUri: "mongodb://mongodb-deployment:27017/myDatabase"
   label: userprofile
