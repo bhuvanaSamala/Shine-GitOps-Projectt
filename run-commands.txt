@@ -1,0 +1,117 @@
+
+    1  ls
+    2  sudo apt update && sudo apt install unzip curl -y
+    3  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    4  unzip awscliv2.zip && sudo ./aws/install && rm -rf awscliv2.zip ./aws
+    5  curl -LO "https://dl.k8s.io/release/\$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+    6  nano cluster.sh
+    7  chmod 700 cluster.sh
+    8  ./cluster.sh
+    9  aws configure
+   10  eksctl create cluster   --name bhuvana-cluster   --version 1.31   --region us-east-1   --nodegroup-name bhuvana   --node-type c7i-flex.large   --nodes 3   --nodes-min 3   --nodes-max 5   --managed
+   11  curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+   12  chmod +x kubectl
+   13  eksctl delete cluster   --name bhuvana-cluster   --region us-east-1
+   14  ls
+   15  cd Shine-GitOps-Projectt
+   16  ls
+   17  kubectl get pods -n argo-rollouts
+   18  helm list
+   19  helm install retail-release ./Retail-chart
+   20  kubectl get pods -n argo-rollouts
+   21  kubectl get all
+   22  kubectl get rollout
+   23  kubectl get pods
+   24  kubectl describe pod userprofile-rollout-bb7c447db-pmkpr
+   25  kubectl get pods -n retail
+   26  kubectl get svc -n retail
+   27  kubectl get rollout -n retail
+   28  .\argocd.exe app get userprofile-blue-green --insecure
+   29  helm repo add datadog https://helm.datadoghq.com
+   30  helm repo update
+   31  helm upgrade --install datadog-agent datadog/datadog \
+   32  helm list -A
+   33  kubectl get pods -n default | grep datadog
+   34  kubectl get daemonset -A
+   35  kubectl get pods -l app=datadog-agent
+   36  kubectl get pods -A | grep datadog
+   37  kubectl create secret generic datadog-secret --from-literal api-key=642d1e325e80a3658b766ad4dd910503
+   38  kubectl create namespace datadog
+   39  helm install datadog-agent datadog/datadog --namespace datadog --set datadog.apiKey=642d1e325e80a3658b766ad4dd910503 --set targetSystem=linux
+   40  kubectl create namespace datadog
+   41  helm install datadog-agent datadog/datadog   --namespace datadog   --set datadog.apiKey=<YOUR_DATADOG_API_KEY>   --set targetSystem=linux
+   42  helm install datadog-agent datadog/datadog \
+   43  helm install datadog-agent datadog/datadog --namespace datadog --set datadog.apiKey=642d1e325e80a3658b766ad4dd910503 --set targetSystem=linux
+   44  helm list -A
+   45  kubectl get pods -n default | grep datadog
+   46  helm get values datadog-agent -n default
+   47  kubectl get all -A | grep datadog
+   48  find . -name Dockerfile
+   49  docker build -t aws-retail-app .
+   50  apt-get install docker.io
+   51  docker build -t aws-retail-app .
+   52  docker images
+   53  docker login
+   54  docker login -u bhuvana20
+   55  docker tag aws-retail-app:latest bhuvana20/aws-retail-app:v1.4.0
+   56  docker push bhuvana20/aws-retail-app:v1.4.0
+   57  kubectl rollout restart deployment/userprofile-rollout -n retail
+   58  kubectl get rollout -n retail
+   59  kubectl argo rollouts restart userprofile-rollout -n retail
+   60  curl -LO https://github.com/argoproj/argo-rollouts/releases/latest/download/kubectl-argo-rollouts-linux-amd64
+   61  chmod +x kubectl-argo-rollouts-linux-amd64
+   62  mv kubectl-argo-rollouts-linux-amd64 /usr/local/bin/kubectl-argo-rollouts
+   63  kubectl argo rollouts version
+   64  kubectl get pods -n retail
+   65  kubectl get applications -n argocd
+   66  kubectl argo rollouts get rollout userprofile-rollout -n retail
+   67  kubectl get pods -A | grep datadog
+   68  kubectl get all -n default | grep datadog
+   69  kubectl get datadogagent -A
+   70  helm status datadog-agent -n default
+   71  kubectl get daemonset -A
+   72  helm install datadog-agent datadog/datadog --namespace datadog --set datadog.apiKey=642d1e325e80a3658b766ad4dd910503 --set targetSystem=linux
+   73  helm install datadog-agent datadog/datadog \
+   74  helm upgrade datadog-agent datadog/datadog \
+   75  helm list -A
+   76  kubectl get daemonset -A
+   77  kubectl get pods -A | grep datadog
+   78  helm get values datadog-agent -n default
+   79  helm upgrade datadog-agent datadog/datadog -n default --set datadog.apiKey=642d1e325e80a3658b766ad4dd910503 --set targetSystem=linux
+   80  helm get values datadog-agent -n default
+   81  kubectl get daemonset -A
+   82  kubectl get pods -A | grep datadog
+   83  kubectl get datadogagent -A
+   84  helm get manifest datadog-agent -n default | grep -A5 -B5 DaemonSet
+   85  kubectl logs daemonset/datadog-agent -n default --tail=50
+   86  history
+   87  pip install google-genai
+   88  apt update
+   89  apt install -y python3-pip
+   90  pip install google-genai
+   91  pip3 install google-genai
+   92  cd ai-agent
+   93  ls
+   94  source venv/bin/activate
+   95  python ai_agent.py
+   96  apt update
+   97  apt install -y python3-venv python3-full
+   98  python3 -m venv venv
+   99  source venv/bin/activate
+  100  pip install google-genai
+  101  python ai_agent.py
+  102  ls
+  103  python ai-agent.py
+  104  ls
+  105  nano ai-agent.py
+  106 
+  107  python3 ai-agent.py
+  108  nano ai-agent.py
+  109  
+  111  nano ai-agentt.py
+  112  python ai-agentt.py
+  113  nano ai-agent1.py
+  114 python ai-agent1.py
+  115  
+  117  history
+(venv) root@ip-1
