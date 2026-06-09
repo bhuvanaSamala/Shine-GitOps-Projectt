@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/jeevan0024/Shine-GitOps-Project.git
+    repoURL: https://github.com/bhuvanaSamala/Shine-GitOps-Projectt.git
     targetRevision: main
     path: Retail-chart
     helm:
