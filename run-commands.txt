@@ -15,6 +15,22 @@
    14  ls
    15  cd Shine-GitOps-Projectt
    16  ls
+kubectl create namespace retail
+kubectl create namespace argocd
+kubectl create namespace argo-rollouts
+kubectl get ns
+PHASE 5 — Install ArgoCD
+==============================================================
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kubectl wait --for=condition=available deployment/argocd-server -n argocd --timeout=180s
+kubectl get pods -n argocd
+kubectl patch svc argocd-server -n argocd -p '{"spec":{"type":"LoadBalancer"}}'
+kubectl get svc -n argocd
+argocd login ec2-3-208-31-195.compute-1.amazonaws.com:80 --username admin --password aYMcPQPS-njikLlG --insecure
+
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+kubectl create namespace argo-rollouts
+
    17  kubectl get pods -n argo-rollouts
    18  helm list
    19  helm install retail-release ./Retail-chart
